@@ -17,13 +17,20 @@ AllPurchases::AllPurchases(string accNum, string item, string date, string amoun
 	this->amount = amount;
 }
 
-//void AllPurchases::printCustomerTotalSpent(vector<AllPurchases>& purchaseList)
-//{
-//	for (int i = 0; i < purchaseList.size(); i++)
-//	{
-//		if (accountNumber == AllPurchases)
-//	}
-//}
+//prints the total spent by each customer
+void AllPurchases::printCustomerTotalSpent(vector<AllPurchases>& purchaseList)
+{
+	double total = 0;
+	for (int i = 0; i < purchaseList.size(); i++)
+	{
+		if (purchaseList[i].getAccNumber() == this->accountNumber)
+		{
+			total += stod(purchaseList[i].getAmount());
+		}
+	}
+
+	cout << "Total amount spent by Account No. " << this->accountNumber << " is: $" << fixed << setprecision(2) << total << endl;
+}
 
 //prints the purchase information for a customer
 void AllPurchases::printCustomerPurchaseInfo(vector<AllCustomers>& customerList)

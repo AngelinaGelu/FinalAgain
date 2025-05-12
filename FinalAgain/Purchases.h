@@ -18,9 +18,10 @@ private:
 public:
 	AllPurchases(string accNum, string item, string date, string amount);
 
-	void printCustomerTotalSpent(vector<AllPurchases>& purchaseList);
+	void printCustomerTotalSpent(vector<AllPurchases>& purchaseList); //done
 	void printCustomerPurchaseInfo(vector<AllCustomers>& customerList);
 
+	//getters all done
 	string getAccNumber();
 	string getItem();
 	string getDate();

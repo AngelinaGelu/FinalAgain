@@ -21,8 +21,9 @@ AllCustomers::AllCustomers(string fName, string lName, string accNum, string stA
 	phoneNumber = pn;
 }
 
+
 //prints customer list
-void AllCustomers::printCustomerList()
+void AllCustomers::printCustomerList(vector<AllCustomers>& customers)
 {
 	for (int i = 0; i < customerList.size(); i++)
 	{
