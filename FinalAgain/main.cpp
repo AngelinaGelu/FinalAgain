@@ -14,11 +14,5 @@ int main()
     string customerName = "CustomerInfo.txt";
     readInCustomersFromFile(customerName, customers);
 
-    
-
-
-
-
-
     return 0;
 }

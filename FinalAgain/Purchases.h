@@ -14,12 +14,26 @@ private:
 	string accountNumber;
 	string item, date;
 	string amount;
-	//vector<AllCustomers> customerList;
+	vector<AllPurchases> purchaseList;
 public:
 	AllPurchases(string accNum, string item, string date, string amount);
 
-	//void printCustomerTotalSpent();
+	void printCustomerTotalSpent(vector<AllPurchases>& purchaseList);
 	void printCustomerPurchaseInfo(vector<AllCustomers>& customerList);
+
+	string getAccNumber();
+	string getItem();
+	string getDate();
+	string getAmount();
 };
 
 #endif
+
+//AllPurchases purchase1;
+//
+//purchase1[i].getAccount() == accNumber{
+//
+//	 total += purchase1[i].amount;
+//}
+//purchase1[1].getAccount();
+

@@ -31,8 +31,6 @@ bool readInCustomersFromFile(string& filename, vector<AllCustomers>& customers)
 
 	}
 	
-	
-
 	infile.close();
 	return true;
 }

@@ -17,6 +17,14 @@ AllPurchases::AllPurchases(string accNum, string item, string date, string amoun
 	this->amount = amount;
 }
 
+//void AllPurchases::printCustomerTotalSpent(vector<AllPurchases>& purchaseList)
+//{
+//	for (int i = 0; i < purchaseList.size(); i++)
+//	{
+//		if (accountNumber == AllPurchases)
+//	}
+//}
+
 //prints the purchase information for a customer
 void AllPurchases::printCustomerPurchaseInfo(vector<AllCustomers>& customerList)
 {
@@ -31,3 +39,9 @@ void AllPurchases::printCustomerPurchaseInfo(vector<AllCustomers>& customerList)
 		cout << "--------------------" << endl;
 	}
 }
+
+//getters
+string AllPurchases::getAccNumber() { return accountNumber;  }
+string AllPurchases::getItem() { return item;  }
+string AllPurchases::getDate() { return date; }
+string AllPurchases::getAmount() { return amount;  }
