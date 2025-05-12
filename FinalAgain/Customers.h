@@ -5,7 +5,7 @@ using namespace std;
 #include <iostream>
 #include <vector>
 #include <string>
-#ifdef CUSTOMERS_H
+#ifndef CUSTOMERS_H
 #define CUSTOMERS_H
 
 
@@ -16,13 +16,16 @@ private:
 	int accountNumber, phoneNumber;
 	//double totalSpent;
 public:
+	vector<AllCustomers> customerList;
+
 	AllCustomers(string fName = "N/A", string lName = "N/A", int accNum = 0, string stA = "N/A", string c = "N/A", string s = "N/A", string zc = "N/A", int pn = 0);
 
 	void printCustomerList(); //done
 	void sortCustomerListAscending(); //done
 	void sortCustomerListDescending(); //done
-	void addNewCustomer(); 
-	void addMultipleCustomers(vector<AllCustomers>& customerList);
+	AllCustomers addNewCustomer();
+	void addMultipleCustomers(vector<AllCustomers>& customerList); //done
+	void updateCustomerInfo(vector<AllCustomers>& customerList); //done
 
 	//getters
 	string getFirstName();

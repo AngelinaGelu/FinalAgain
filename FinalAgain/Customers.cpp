@@ -69,7 +69,7 @@ void AllCustomers::sortCustomerListDescending()
 }*/
 
 //adds a new customer 
-void AllCustomers::addNewCustomer()
+AllCustomers AllCustomers::addNewCustomer()
 {
 	string fName, lName, stA, city, state, zipCode;
 	int accNum, phoneNum;
@@ -103,13 +103,136 @@ void AllCustomers::addMultipleCustomers(vector<AllCustomers>& customerList)
 	cout << "Add another customer? (y/n): ";
 	cin >> choice;
 
-	if (choice == 'y' || 'Y')
+	while (true) 
 	{
-		addMultipleCustomers(customerList);
+		if (choice == 'y' || choice == 'Y')
+		{
+			addMultipleCustomers(customerList);
+			break;
+		}
+		else if (choice == 'n' || choice == 'N')
+		{
+			cout << "Done adding customers." << endl;
+			break;
+		}
+		else
+		{
+			cout << "Invalid input. Please enter 'y' or 'n':" << endl;
+		}
+	}
+}
+
+//updates the info of a preexisting customer
+void AllCustomers::updateCustomerInfo(vector<AllCustomers>& customerList)
+{
+	if (customerList.empty())
+	{
+		cout << "There are no customers to update." << endl;
+		return;
+	}
+
+	cout << "Which customer would you like to update? " << endl;
+	for (int i = 0; i < customerList.size(); ++i)
+	{
+		cout << i + 1 << ". " << customerList[i].getFirstName() << ' ' << customerList[i].getLastName() << endl;
+		cout << "Account No. " << customerList[i].getAccountNumber() << endl;
+	}
+
+	int choice;
+	cout << "Enter here: ";
+	cin >> choice;
+
+	if (choice < 1 || choice > customerList.size())
+	{
+		cout << "Invalid Selection. " << endl;
+
+		char again;
+		cout << "Would you like to select another customer to update?: ";
+		cin >> again;
+
+		if (again == 'y' || again == 'Y')
+		{
+			updateCustomerInfo(customerList);
+		}
+		else
+		{
+			cout << "Exiting the update menu. . ." << endl;
+		}
+		return;
+	}
+
+	AllCustomers& customer = customerList[choice - 1];
+
+	cout << customer.getFirstName() << ' ' << customer.getLastName() << " selected." << endl;
+
+	cout << "What would you like to update?" << endl;
+	cout << "1. First Name\n2. Last Name\n3. Street Address\n4. City\n5. State\n6. Zip Code\n7. Phone Number" << endl;
+	cout << "Enter here: ";
+
+	int c;
+	cin >> c;
+
+	string newThing;
+	int newNumber;
+
+	if (c == 1)
+	{
+		cout << "Enter the new first name: ";
+		cin >> newThing;
+		customer.setFirstName(newThing);
+	}
+	else if (c == 2)
+	{
+		cout << "Enter the new last name: ";
+		cin >> newThing;
+		customer.setLastName(newThing);
+	}
+	else if (c == 3)
+	{
+		cout << "Enter the new street address (no spaces): ";
+		cin >> newThing;
+		customer.setStreetAddress(newThing);
+	}
+	else if (c == 4)
+	{
+		cout << "Enter the new city: ";
+		cin >> newThing;
+		customer.setCity(newThing);
+	}
+	else if (c == 5)
+	{
+		cout << "Enter the new state: ";
+		cin >> newThing;
+		customer.setState(newThing);
+	}
+	else if (c == 6)
+	{
+		cout << "Enter the new zip code: ";
+		cin >> newThing;
+		customer.setZipCode(newThing);
+	}
+	else if (c == 7)
+	{
+		cout << "Enter the new phone number: ";
+		cin >> newNumber;
+		customer.setPhoneNumber(newNumber);
 	}
 	else
 	{
-		cout << "Done adding customers." << endl;
+		cout << "Invalid choice. Would you like to reenter? (y/n): ";
+
+		char reenter;
+		cin >> reenter;
+
+		if (reenter == 'y' || 'Y')
+		{
+			updateCustomerInfo(customerList);
+		}
+		else
+		{
+			cout << "Exiting update menu. . ." << endl;
+		}
+		return;
 	}
 }
 
@@ -124,14 +247,14 @@ int AllCustomers::getAccountNumber() { return accountNumber; }
 int AllCustomers::getPhoneNumber() { return phoneNumber; }
 
 //setters
-void AllCustomers::setFirstName(string fn) { fn = firstName; }
-void AllCustomers::setLastName(string ln) { ln = lastName; }
-void AllCustomers::setStreetAddress(string stA) { stA = streetAddress; }
-void AllCustomers::setCity(string c) { c = city; }
-void AllCustomers::setState(string s){ s = state; }
-void AllCustomers::setZipCode(string zc) { zc = zipCode; }
-void AllCustomers::setAccountNumber(int accN) {	accN = accountNumber; }
-void AllCustomers::setPhoneNumber(int pn) {	pn = phoneNumber; }
+void AllCustomers::setFirstName(string fn) { firstName = fn; }
+void AllCustomers::setLastName(string ln) { lastName = ln; }
+void AllCustomers::setStreetAddress(string stA) { streetAddress = stA; }
+void AllCustomers::setCity(string c) { city = c; }
+void AllCustomers::setState(string s){ state = s; }
+void AllCustomers::setZipCode(string zc) { zipCode = zc; }
+void AllCustomers::setAccountNumber(int accN) {	accountNumber = accN; }
+void AllCustomers::setPhoneNumber(int pn) {	phoneNumber = pn; }
 
 
 

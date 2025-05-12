@@ -5,7 +5,7 @@ using namespace std;
 #include <iostream>
 #include <vector>
 #include <string>
-#ifdef PURCHASES_H
+#ifndef PURCHASES_H
 #define PURCHASES_H
 
 class AllPurchases

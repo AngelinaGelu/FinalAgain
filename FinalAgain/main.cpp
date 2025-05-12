@@ -4,12 +4,12 @@ using namespace std;
 #include <iostream>
 #include <string>
 #include <vector>
-#include "FileManager.h"
-#include "AllCustomers.h"
-#include "AllPurchases.h"
+#include "FileStuff.h"
+#include "Customers.h"
+#include "Purchases.h"
 
 int main()
 {
-	//vector<AllCustomers> customerList;
+	vector<AllCustomers> customerList;
 	return 0;
 }

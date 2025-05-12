@@ -6,7 +6,7 @@ using namespace std;
 #include <iostream>
 #include <vector>
 #include <string>
-#ifdef FILESTUFF_H
+#ifndef FILESTUFF_H
 #define FILESTUFF_H
 
 //reads in file info to the program
