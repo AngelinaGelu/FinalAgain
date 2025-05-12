@@ -4,12 +4,12 @@ using namespace std;
 #include <iostream>
 #include <string>
 #include <vector>
-#include "FileStuff.h"
+//#include "FileStuff.h"
 #include "Customers.h"
 #include "Purchases.h"
 
 //default constructor
-AllCustomers::AllCustomers(string fName, string lName, int accNum, string stA, string c, string s, string zc, int pn)
+AllCustomers::AllCustomers(string fName, string lName, string accNum, string stA, string c, string s, string zc, string pn)
 {
 	firstName = fName;
 	lastName = lName;
@@ -87,7 +87,7 @@ void AllCustomers::sortCustomerListDescending()
 AllCustomers AllCustomers::addNewCustomer()
 {
 	string fName, lName, stA, city, state, zipCode;
-	int accNum, phoneNum;
+	string accNum, phoneNum;
 
 	cout << "Enter the first name: ";
 	cin >> fName;
@@ -258,8 +258,8 @@ string AllCustomers::getStreetAddress() { return streetAddress; }
 string AllCustomers::getCity() { return city; }
 string AllCustomers::getState() { return state; }
 string AllCustomers::getZipCode() { return zipCode; }
-int AllCustomers::getAccountNumber() { return accountNumber; }
-int AllCustomers::getPhoneNumber() { return phoneNumber; }
+string AllCustomers::getAccountNumber() { return accountNumber; }
+string AllCustomers::getPhoneNumber() { return phoneNumber; }
 
 //setters
 void AllCustomers::setFirstName(string fn) { firstName = fn; }

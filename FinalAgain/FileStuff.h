@@ -1,10 +1,10 @@
-#pragma once
-using namespace std;
-#include <iomanip>
-#include <fstream>
-#include <iostream>
-#include <vector>
-#include <string>
+//#pragma once
+//using namespace std;
+//#include <iomanip>
+//#include <fstream>
+//#include <iostream>
+//#include <vector>
+//#include <string>
 #ifndef FILESTUFF_H
 #define FILESTUFF_H
 #include "Customers.h"
@@ -13,22 +13,27 @@ using namespace std;
 //reads in file info to the program
 bool readInCustomersFromFile(string& filename, vector<AllCustomers>& customers)
 {
-	ifstream file(filename);
-	if (!file)
+	ifstream infile(filename);
+	if (!infile)
 	{
 		cout << "There was an error opening " << filename << endl;
 		return false;
 	}
 
-	string fName, lName, street, city, state, zipCode;
-	int accNum, phoneNum;
+	string fName ="NA", lName, street, city, state, zipCode;
+	
+	string accNum, phoneNum;
+	
+	while (infile >> fName >> lName >> accNum >> street >> city >> state >> zipCode >> phoneNum) {
+		//cout << fName << " " << lName << " " << accNum << " " << street << " " << city << " " << state << " " << zipCode << " " << phoneNum << endl;
+		customers.push_back(AllCustomers(fName, lName, accNum, street, city, state, zipCode, phoneNum));
 
-	while (file >> fName >> lName >> accNum >> street >> city >> state >> zipCode >> phoneNum)
-	{
-		customers.push_back(AllCustomers(fName, lName, accNum, street, city, state, zipCode, phoneNum)); // Directly create an object
+
 	}
+	
+	
 
-	file.close();
+	infile.close();
 	return true;
 }
 
@@ -42,9 +47,9 @@ bool readInPurchasesFromFile(string& filename, vector<AllPurchases>& purchases)
 		return false;
 	}
 	
-	int accNum;
+	string accNum;
 	string item, date;
-	double amount;
+	string amount;
 
 	while (file >> accNum >> item >> date >> amount)
 	{

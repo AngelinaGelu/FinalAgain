@@ -1,15 +1,15 @@
-using namespace std;
-#include <iomanip>
-#include <fstream>
-#include <iostream>
-#include <string>
-#include <vector>
-#include "FileStuff.h"
+//using namespace std;
+//#include <iomanip>
+//#include <fstream>
+//#include <iostream>
+//#include <string>
+//#include <vector>
+//#include "FileStuff.h"
 #include "Customers.h"
 #include "Purchases.h"
 
 //default constructor
-AllPurchases::AllPurchases(int accNum, string item, string date, double amount)
+AllPurchases::AllPurchases(string accNum, string item, string date, string amount)
 {
 	this->accountNumber = accNum;
 	this->item = item;

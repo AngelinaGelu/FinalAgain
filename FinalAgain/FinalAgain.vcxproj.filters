@@ -35,8 +35,13 @@
     <ClCompile Include="Purchases.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FileStuff.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CustomerInfo.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="PurchaseInfo.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

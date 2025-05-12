@@ -13,12 +13,12 @@ class AllCustomers
 {
 private:
 	string firstName, lastName, streetAddress, city, state, zipCode;
-	int accountNumber, phoneNumber;
+	string accountNumber, phoneNumber;
 	//double totalSpent;
 public:
 	vector<AllCustomers> customerList;
 
-	AllCustomers(string fName = "N/A", string lName = "N/A", int accNum = 0, string stA = "N/A", string c = "N/A", string s = "N/A", string zc = "N/A", int pn = 0);
+	AllCustomers(string fName = "N/A", string lName = "N/A", string accNum = "0", string stA = "N/A", string c = "N/A", string s = "N/A", string zc = "N/A", string pn = "0");
 
 	void printCustomerList(); //done
 	void sortCustomerListAscending(); //done
@@ -34,8 +34,8 @@ public:
 	string getCity();
 	string getState();
 	string getZipCode();
-	int getAccountNumber();
-	int getPhoneNumber();
+	string getAccountNumber();
+	string getPhoneNumber();
 
 	//setters
 	void setFirstName(string fn);

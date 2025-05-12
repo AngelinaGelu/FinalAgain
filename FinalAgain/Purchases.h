@@ -11,16 +11,15 @@ using namespace std;
 class AllPurchases
 {
 private:
-	int accountNumber;
+	string accountNumber;
 	string item, date;
-	double amount;
+	string amount;
 	//vector<AllCustomers> customerList;
 public:
-	AllPurchases(int accNum, string item, string date, double amount);
+	AllPurchases(string accNum, string item, string date, string amount);
 
-	void printCustomerTotalSpent();
+	//void printCustomerTotalSpent();
 	void printCustomerPurchaseInfo(vector<AllCustomers>& customerList);
-	//void printCustomerPurchaseInfo(vector<AllCustomers>& customerList);
 };
 
 #endif
