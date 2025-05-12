@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 using namespace std;
 #include <iomanip>
 #include <fstream>
@@ -8,28 +7,52 @@ using namespace std;
 #include <string>
 #ifndef FILESTUFF_H
 #define FILESTUFF_H
+#include "Customers.h"
+#include "Purchases.h"
 
 //reads in file info to the program
-template <typename obj>
-vector<obj> readInFromFile(string& filenname, obj (*parseFunc)(string&))
+bool readInCustomersFromFile(string& filename, vector<AllCustomers>& customers)
 {
-	vector<obj> data;
 	ifstream file(filename);
-
 	if (!file)
 	{
 		cout << "There was an error opening " << filename << endl;
-		return data;
+		return false;
 	}
 
-	string line;
-	while (getline(file, line))
+	string fName, lName, street, city, state, zipCode;
+	int accNum, phoneNum;
+
+	while (file >> fName >> lName >> accNum >> street >> city >> state >> zipCode >> phoneNum)
 	{
-		data.push_back(parseFunc(line));
+		customers.push_back(AllCustomers(fName, lName, accNum, street, city, state, zipCode, phoneNum)); // Directly create an object
 	}
 
 	file.close();
-	return data;
+	return true;
+}
+
+//reads purchases from a file
+bool readInPurchasesFromFile(string& filename, vector<AllPurchases>& purchases)
+{
+	ifstream file(filename);
+	if (!file)
+	{
+		cout << "There was an error opening " << filename << endl;
+		return false;
+	}
+	
+	int accNum;
+	string item, date;
+	double amount;
+
+	while (file >> accNum >> item >> date >> amount)
+	{
+		purchases.push_back(AllPurchases(accNum, item, date, amount));
+	}
+
+	file.close();
+	return true;
 }
 
 #endif

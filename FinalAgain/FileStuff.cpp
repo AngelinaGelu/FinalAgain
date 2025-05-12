@@ -5,3 +5,5 @@ using namespace std;
 #include <string>
 #include <vector>
 #include "FileStuff.h"
+#include "Customers.h"
+#include "Purchases.h"

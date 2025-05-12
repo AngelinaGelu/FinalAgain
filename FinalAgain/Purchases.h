@@ -14,11 +14,13 @@ private:
 	int accountNumber;
 	string item, date;
 	double amount;
+	//vector<AllCustomers> customerList;
 public:
 	AllPurchases(int accNum, string item, string date, double amount);
 
 	void printCustomerTotalSpent();
-	void printCustomerPurchaseInfo();
+	void printCustomerPurchaseInfo(vector<AllCustomers>& customerList);
+	//void printCustomerPurchaseInfo(vector<AllCustomers>& customerList);
 };
 
 #endif

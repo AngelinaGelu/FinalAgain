@@ -4,7 +4,22 @@ using namespace std;
 #include <iostream>
 #include <string>
 #include <vector>
+#include "FileStuff.h"
 #include "Customers.h"
+#include "Purchases.h"
+
+//default constructor
+AllCustomers::AllCustomers(string fName, string lName, int accNum, string stA, string c, string s, string zc, int pn)
+{
+	firstName = fName;
+	lastName = lName;
+	accountNumber = accNum;
+	streetAddress = stA;
+	city = c;
+	state = s;
+	zipCode = zc;
+	phoneNumber = pn;
+}
 
 //prints customer list
 void AllCustomers::printCustomerList()
@@ -224,7 +239,7 @@ void AllCustomers::updateCustomerInfo(vector<AllCustomers>& customerList)
 		char reenter;
 		cin >> reenter;
 
-		if (reenter == 'y' || 'Y')
+		if (reenter == 'y' || reenter == 'Y')
 		{
 			updateCustomerInfo(customerList);
 		}

@@ -10,6 +10,5 @@ using namespace std;
 
 int main()
 {
-	vector<AllCustomers> customerList;
-	return 0;
+    return 0;
 }
