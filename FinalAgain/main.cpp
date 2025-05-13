@@ -51,13 +51,13 @@ int main()
 
         switch (choice)
         {
-        case 1:
+        case 1: //prints all customers in the file
         {
             AllCustomers temp;
             temp.printCustomerList(customers);
             break;
         }
-        case 2:
+        case 2: //prints total spent for all customers
         {
             // print total spent for all customers
             for (int i = 0; i < customers.size(); i++)
@@ -69,6 +69,56 @@ int main()
             }
             break;
         }
+        case 3: //prints a specific customer's info
+        {
+            AllPurchases p;
+            p.printCustomerPurchaseInfo(customers, purchases);
+            break;
+            //if (customers.empty())
+            //{
+            //    cout << "No customers found. " << endl;
+            //    break;
+            //}
+
+            //cout << "Choose a customer: " << endl;
+            //for (int i = 0; i < customers.size(); ++i)
+            //{
+            //    cout << i + 1 << ". " << customers[i].getFirstName() << " " << customers[i].getLastName()
+            //        << " Account No.: " << customers[i].getAccountNumber() << endl;
+            //}
+
+            //int c;
+            //cout << "Enter your choice (1-" << customers.size() << "): ";
+            //cin >> c;
+
+            //if (c < 1 || c > customers.size())
+            //{
+            //    cout << "Invalid choice.\n";
+            //    break;
+            //}
+
+            //int i = c - 1;
+            //customers[i].printInfo(); // Assumes you have this method
+            //AllPurchases temp(customers[i].getAccountNumber(), "", "", "0.00");
+            //temp.printCustomerPurchaseInfo(customers, purchases);
+            //break;
+
+        }
+        case 4: //adds a new customer
+        {
+            AllCustomers temp;
+            AllCustomers newCustomer = temp.addNewCustomer();
+            customers.push_back(newCustomer);
+            cout << "New customer added." << endl;
+            break;
+        }
+        case 5: //adds multiple customers (recursive function)
+        {
+            AllCustomers obj;
+            obj.addMultipleCustomers(customers);
+            break;
+        }
+
         }
     } while (choice != 0);
     

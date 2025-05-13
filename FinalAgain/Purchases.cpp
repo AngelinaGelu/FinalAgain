@@ -35,7 +35,35 @@ void AllPurchases::printCustomerTotalSpent(vector<AllPurchases>& purchaseList)
 //prints the purchase information for a customer
 void AllPurchases::printCustomerPurchaseInfo(vector<AllCustomers>& customerList, vector<AllPurchases>& purchaseList)
 {
+	if (customerList.empty())
+	{
+		cout << "No customers found. " << endl;
+		return;
+	}
+
+	cout << "Select a customer: " << endl;
 	for (int i = 0; i < customerList.size(); i++)
+	{
+		cout << i + 1 << ". " << customerList[i].getFirstName() << " " << customerList[i].getLastName() << endl <<  "Account No.: " << customerList[i].getAccountNumber() << endl;
+	}
+
+	int choice;
+	cout << "Enter which customer you'd like to view: ";
+	cin >> choice;
+
+	if (choice < 1 || choice > customerList.size())
+	{
+		cout << "Invalid choice. " << endl;
+		return;
+	}
+
+	int x = choice - 1;
+	customerList[x].printCustomerList(customerList);
+
+	AllPurchases temp(customerList[index].getAccountNumber(), "", "", "0.00");
+	temp.printCustomerTotalSpent(purchaseList);
+
+	/*for (int i = 0; i < customerList.size(); i++)
 	{
 		cout << "--------------------" << endl;
 		cout << "Customer #" << (i + 1) << endl;
@@ -46,7 +74,7 @@ void AllPurchases::printCustomerPurchaseInfo(vector<AllCustomers>& customerList,
 		AllPurchases temp(customerList[i].getAccountNumber(), "", "", "0.00");
 		temp.printCustomerTotalSpent(purchaseList);
 		cout << "--------------------" << endl;
-	}
+	}*/
 }
 
 //adds a new purchase for a customer
