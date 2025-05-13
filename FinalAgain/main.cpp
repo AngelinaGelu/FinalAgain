@@ -10,7 +10,6 @@
 
 void menu()
 {
-    cout << "Welcome to my final! (It was really bad)" << endl;
     cout << "What would you like to do?" << endl;
     cout << "---------- Manager Menu ----------" << endl;
     cout << "1. Print all customers" << endl;
@@ -32,49 +31,49 @@ void menu()
 
 int main()
 {
-    //vector<AllCustomers> customers;
-    //vector<AllPurchases> purchases;
+    vector<AllCustomers> customers;
+    vector<AllPurchases> purchases;
 
-    //string customerFile = "CustomerInfo.txt";
-    //string purchaseFile = "PurchaseInfo.txt";
+    string customerFile = "CustomerInfo.txt";
+    string purchaseFile = "PurchaseInfo.txt";
 
-    //if (!readInCustomersFromFile(customerFile, customers)) return 1;
-    //if (!readInPurchasesFromFile(purchaseFile, purchases)) return 1;
+    if (!readInCustomersFromFile(customerFile, customers)) return 1;
+    if (!readInPurchasesFromFile(purchaseFile, purchases)) return 1;
 
-    //AllPurchases dummy("", "", "", "0.00");
-    //dummy.printCustomerPurchaseInfo(customers, purchases);
+    AllPurchases dummy("", "", "", "0.00");
+    dummy.printCustomerPurchaseInfo(customers, purchases);
 
-    //int choice;
-    //do
-    //{
-    //    menu();
-    //    cin >> choice;
+    int choice;
+    do
+    {
+        menu();
+        cin >> choice;
 
-    //    switch (choice)
-    //    {
-    //    case 1:
-    //    {
-    //        AllCustomers temp;
-    //        temp.printCustomerList(customers);
-    //        break;
-    //    }
-    //    case 2:
-    //    {
-    //        // print total spent for all customers
-    //        for (int i = 0; i < customers.size(); i++)
-    //        {
-    //            AllPurchases temp(customers[i].getAccountNumber(), "", "", "0.00");
-    //            cout << "Customer: " << customers[i].getFirstName() << " " << customers[i].getLastName() << endl;
-    //            temp.printCustomerTotalSpent(purchases);
-    //            cout << "--------------------" << endl;
-    //        }
-    //        break;
-    //    }
-    //    }
-    //} while (choice != 0);
-    //
+        switch (choice)
+        {
+        case 1:
+        {
+            AllCustomers temp;
+            temp.printCustomerList(customers);
+            break;
+        }
+        case 2:
+        {
+            // print total spent for all customers
+            for (int i = 0; i < customers.size(); i++)
+            {
+                AllPurchases temp(customers[i].getAccountNumber(), "", "", "0.00");
+                cout << "Customer: " << customers[i].getFirstName() << " " << customers[i].getLastName() << endl;
+                temp.printCustomerTotalSpent(purchases);
+                cout << "--------------------" << endl;
+            }
+            break;
+        }
+        }
+    } while (choice != 0);
+    
 
-    //return 0;
+    return 0;
 
     /*if (!readInCustomersFromFile(customerFile, customers)) return 1;
     if (!readInPurchasesFromFile(purchaseFile, purchases)) return 1;

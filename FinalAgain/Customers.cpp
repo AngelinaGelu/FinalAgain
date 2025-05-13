@@ -8,6 +8,8 @@ using namespace std;
 #include "Customers.h"
 #include "Purchases.h"
 
+//AllCustomers::AllCustomers() {}
+
 //default constructor
 AllCustomers::AllCustomers(string fName, string lName, string accNum, string stA, string c, string s, string zc, string pn)
 {
@@ -116,11 +118,12 @@ void AllCustomers::addMultipleCustomers(vector<AllCustomers>& customerList)
 	customerList.push_back(addNewCustomer());
 
 	char choice;
-	cout << "Add another customer? (y/n): ";
-	cin >> choice;
 
 	while (true) 
 	{
+		cout << "Add another customer? (y/n): ";
+		cin >> choice;
+
 		if (choice == 'y' || choice == 'Y')
 		{
 			addMultipleCustomers(customerList);
@@ -160,10 +163,10 @@ void AllCustomers::updateCustomerInfo(vector<AllCustomers>& customerList)
 
 	if (choice < 1 || choice > customerList.size())
 	{
-		cout << "Invalid Selection. " << endl;
+		cout << "Invalid Selection. Would you like to select another customer to update ? :" << endl;
 
 		char again;
-		cout << "Would you like to select another customer to update?: ";
+		//cout << "Would you like to select another customer to update?: ";
 		cin >> again;
 
 		if (again == 'y' || again == 'Y')
@@ -249,6 +252,47 @@ void AllCustomers::updateCustomerInfo(vector<AllCustomers>& customerList)
 			cout << "Exiting update menu. . ." << endl;
 		}
 		return;
+	}
+}
+
+//deletes the customer
+void AllCustomers::deleteCustomer(vector<AllCustomers>& customerList)
+{
+	if (customerList.empty())
+	{
+		cout << "There are no customers to delete." << endl;
+		return;
+	}
+
+	cout << "Which customer would you like to delete?" << endl;
+	for (int i = 0; i < customerList.size(); ++i)
+	{
+		cout << i + 1 << ". " << customerList[i].getFirstName() << ' ' << customerList[i].getLastName() << endl << "Account No.: " << customerList[i].getAccountNumber() << endl;
+	}
+
+	int choice;
+	cout << "Enter the number of the customer to delete: ";
+	cin >> choice;
+
+	if (choice < 1 || choice > customerList.size())
+	{
+		cout << "Invalid selection. Returning to menu." << endl;
+		return;
+	}
+
+	cout << "Are you sure you want to delete " << customerList[choice - 1].getFirstName() << ' ' << customerList[choice - 1].getLastName() << "? (y/n): ";
+	char confirm;
+	cin >> confirm;
+
+	if (confirm == 'y' || confirm == 'Y')
+	{
+		customerList.erase(customerList.begin() + (choice - 1));
+		cout << "Customer deleted." << endl;
+	}
+
+	else
+	{
+		cout << "Deletion canceled." << endl;
 	}
 }
 

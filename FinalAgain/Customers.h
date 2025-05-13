@@ -23,9 +23,12 @@ public:
 	void printCustomerList(vector<AllCustomers>& customers); //done
 	void sortCustomerListAscending(); //done
 	void sortCustomerListDescending(); //done
+
 	AllCustomers addNewCustomer();
+
 	void addMultipleCustomers(vector<AllCustomers>& customerList); //done
 	void updateCustomerInfo(vector<AllCustomers>& customerList); //done
+	void deleteCustomer(vector<AllCustomers>& customerList);
 
 
 	//getters

@@ -49,6 +49,65 @@ void AllPurchases::printCustomerPurchaseInfo(vector<AllCustomers>& customerList,
 	}
 }
 
+//adds a new purchase for a customer
+AllPurchases AllPurchases::addNewPurchase(vector<AllCustomers>& customerList)
+{
+	string accNum, item, date, amount;
+	
+	cout << "Enter the account number of the customer: ";
+	cin >> accNum;
+
+	bool found = false;
+	for (int i = 0; i < customerList.size(); i++)
+	{
+		if (customerList[i].getAccountNumber() == accNum)
+		{
+			found = true;
+			break;
+		}
+	}
+
+	if (!found)
+	{
+		cout << "No customer with that account number was found. Purchase not added." << endl;
+		return AllPurchases("", "", "", "0.00");
+	}
+
+	cout << "Enter the item name: ";
+	cin >> item;
+	cout << "Enter the date (MM/DD/YYYY): ";
+	cin >> date;
+	cout << "Enter the amount: $";
+	cin >> amount;
+
+	return AllPurchases(accNum, item, date, amount);
+
+}
+
+//adds multiple purchases to a customer
+AllPurchases AllPurchases::addMultipleNewPurchases(vector<AllCustomers>& customerList, vector<AllPurchases>& purchaseList)
+{
+	char choice;
+
+	AllPurchases newPurchase = addNewPurchase(customerList);
+	purchaseList.push_back(newPurchase);
+
+	cout << "Would you like to add a purchase? (y/n): ";
+	cin >> choice;
+
+	if (choice == 'y' || choice == 'Y')
+	{
+		addMultipleNewPurchases(customerList, purchaseList);
+	}
+	else
+	{
+		cout << "Finished adding purchases." << endl;
+	}
+
+	return newPurchase;
+}
+
+
 //getters
 string AllPurchases::getAccNumber() { return accountNumber;  }
 string AllPurchases::getItem() { return item;  }
