@@ -114,6 +114,29 @@ int main()
         {
             AllCustomers obj;
             obj.addMultipleCustomers(customers);
+            cout << endl << "Press Enter to return to the menu..." << endl;
+            cin.ignore();
+            cin.get();
+            break;
+        }
+        //space
+        case 6: //update a customer
+        {
+            AllCustomers ac;
+            ac.updateCustomerInfo(customers);
+            cout << endl << "Press Enter to return to the menu..." << endl;
+            cin.ignore();
+            cin.get();
+            break;
+        }
+        //space
+        case 7: //deletes a customer
+        {
+            AllCustomers ac;
+            ac.deleteCustomer(customers);
+            cout << endl << "Press Enter to return to the menu..." << endl;
+            cin.ignore();
+            cin.get();
             break;
         }
 
