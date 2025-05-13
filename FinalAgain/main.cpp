@@ -32,13 +32,51 @@ void menu()
 
 int main()
 {
-    vector<AllCustomers> customers;
-    vector<AllPurchases> purchases;
+    //vector<AllCustomers> customers;
+    //vector<AllPurchases> purchases;
 
-    string customerFile = "CustomerInfo.txt";
-    string purchaseFile = "PurchaseInfo.txt";
+    //string customerFile = "CustomerInfo.txt";
+    //string purchaseFile = "PurchaseInfo.txt";
 
-    if (!readInCustomersFromFile(customerFile, customers)) return 1;
+    //if (!readInCustomersFromFile(customerFile, customers)) return 1;
+    //if (!readInPurchasesFromFile(purchaseFile, purchases)) return 1;
+
+    //AllPurchases dummy("", "", "", "0.00");
+    //dummy.printCustomerPurchaseInfo(customers, purchases);
+
+    //int choice;
+    //do
+    //{
+    //    menu();
+    //    cin >> choice;
+
+    //    switch (choice)
+    //    {
+    //    case 1:
+    //    {
+    //        AllCustomers temp;
+    //        temp.printCustomerList(customers);
+    //        break;
+    //    }
+    //    case 2:
+    //    {
+    //        // print total spent for all customers
+    //        for (int i = 0; i < customers.size(); i++)
+    //        {
+    //            AllPurchases temp(customers[i].getAccountNumber(), "", "", "0.00");
+    //            cout << "Customer: " << customers[i].getFirstName() << " " << customers[i].getLastName() << endl;
+    //            temp.printCustomerTotalSpent(purchases);
+    //            cout << "--------------------" << endl;
+    //        }
+    //        break;
+    //    }
+    //    }
+    //} while (choice != 0);
+    //
+
+    //return 0;
+
+    /*if (!readInCustomersFromFile(customerFile, customers)) return 1;
     if (!readInPurchasesFromFile(purchaseFile, purchases)) return 1;
 
     int choice;
@@ -59,7 +97,7 @@ int main()
         case 2:
             break;
         }
-    } while (choice != 0);
+    } while (choice != 0);*/
 
     //vector<AllCustomers> customers;
     //vector<AllPurchases> purchases;
@@ -82,7 +120,5 @@ int main()
     //    cout << "--------------------" << endl;
     //}
 
-
-
-    return 0;
+    //return 0;
 }

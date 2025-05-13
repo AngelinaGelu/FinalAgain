@@ -33,7 +33,7 @@ void AllPurchases::printCustomerTotalSpent(vector<AllPurchases>& purchaseList)
 }
 
 //prints the purchase information for a customer
-void AllPurchases::printCustomerPurchaseInfo(vector<AllCustomers>& customerList)
+void AllPurchases::printCustomerPurchaseInfo(vector<AllCustomers>& customerList, vector<AllPurchases>& purchaseList)
 {
 	for (int i = 0; i < customerList.size(); i++)
 	{
@@ -42,7 +42,9 @@ void AllPurchases::printCustomerPurchaseInfo(vector<AllCustomers>& customerList)
 		cout << "Account No.: " << customerList[i].getAccountNumber() << endl;
 		cout << "Name: " << customerList[i].getFirstName() << ' ' << customerList[i].getLastName() << endl;
 		cout << "Items Purchased: " << endl;
-		//cout << "Total Amount Spent: $" << fixed << setprecision(2) << customerList[i].totalSpent << endl;
+
+		AllPurchases temp(customerList[i].getAccountNumber(), "", "", "0.00");
+		temp.printCustomerTotalSpent(purchaseList);
 		cout << "--------------------" << endl;
 	}
 }

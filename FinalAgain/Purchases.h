@@ -19,7 +19,7 @@ public:
 	AllPurchases(string accNum, string item, string date, string amount);
 
 	void printCustomerTotalSpent(vector<AllPurchases>& purchaseList); //done
-	void printCustomerPurchaseInfo(vector<AllCustomers>& customerList);
+	void printCustomerPurchaseInfo(vector<AllCustomers>& customerList, vector<AllPurchases>& purchaseList);
 
 	//getters all done
 	string getAccNumber();
