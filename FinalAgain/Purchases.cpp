@@ -60,8 +60,7 @@ void AllPurchases::printCustomerPurchaseInfo(vector<AllCustomers>& customerList,
 	int x = choice - 1;
 	customerList[x].printCustomerList(customerList);
 
-	AllPurchases temp(customerList[index].getAccountNumber(), "", "", "0.00");
-	temp.printCustomerTotalSpent(purchaseList);
+	printCustomerTotalSpent(purchaseList);
 
 	/*for (int i = 0; i < customerList.size(); i++)
 	{

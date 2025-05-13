@@ -10,7 +10,7 @@
 
 void menu()
 {
-    cout << "What would you like to do?" << endl;
+    cout << endl << "What would you like to do?" << endl;
     cout << "---------- Manager Menu ----------" << endl;
     cout << "1. Print all customers" << endl;
     cout << "2. Print total spent for all customers" << endl;
@@ -40,9 +40,6 @@ int main()
     if (!readInCustomersFromFile(customerFile, customers)) return 1;
     if (!readInPurchasesFromFile(purchaseFile, purchases)) return 1;
 
-    AllPurchases dummy("", "", "", "0.00");
-    dummy.printCustomerPurchaseInfo(customers, purchases);
-
     int choice;
     do
     {
@@ -57,9 +54,9 @@ int main()
             temp.printCustomerList(customers);
             break;
         }
+        //space
         case 2: //prints total spent for all customers
         {
-            // print total spent for all customers
             for (int i = 0; i < customers.size(); i++)
             {
                 AllPurchases temp(customers[i].getAccountNumber(), "", "", "0.00");
@@ -69,41 +66,41 @@ int main()
             }
             break;
         }
+        //space
         case 3: //prints a specific customer's info
         {
-            AllPurchases p;
-            p.printCustomerPurchaseInfo(customers, purchases);
+            cout << endl << "Select a customer:" << endl;
+            for (int i = 0; i < customers.size(); ++i)
+            {
+                cout << i + 1 << ". " << customers[i].getFirstName() << " " << customers[i].getLastName()
+                    << " Account No.: " << customers[i].getAccountNumber() << endl;
+            }
+
+            int choice;
+            cout << endl << "Enter which customer you'd like to view: ";
+            cin >> choice;
+
+            if (choice >= 1 && choice <= customers.size())
+            {
+                int selectedIndex = choice - 1;
+                AllPurchases temp(customers[selectedIndex].getAccountNumber(), "", "", "0.00");
+
+                temp.printCustomerTotalSpent(purchases);
+
+                temp.printCustomerPurchaseInfo(customers, purchases);
+            }
+            else
+            {
+                cout << endl << "Invalid choice. Please select a valid customer." << endl;
+            }
+
+            cout << endl << "Press Enter to return to the menu..." << endl;
+            cin.ignore();
+            cin.get();
+
             break;
-            //if (customers.empty())
-            //{
-            //    cout << "No customers found. " << endl;
-            //    break;
-            //}
-
-            //cout << "Choose a customer: " << endl;
-            //for (int i = 0; i < customers.size(); ++i)
-            //{
-            //    cout << i + 1 << ". " << customers[i].getFirstName() << " " << customers[i].getLastName()
-            //        << " Account No.: " << customers[i].getAccountNumber() << endl;
-            //}
-
-            //int c;
-            //cout << "Enter your choice (1-" << customers.size() << "): ";
-            //cin >> c;
-
-            //if (c < 1 || c > customers.size())
-            //{
-            //    cout << "Invalid choice.\n";
-            //    break;
-            //}
-
-            //int i = c - 1;
-            //customers[i].printInfo(); // Assumes you have this method
-            //AllPurchases temp(customers[i].getAccountNumber(), "", "", "0.00");
-            //temp.printCustomerPurchaseInfo(customers, purchases);
-            //break;
-
         }
+        //space
         case 4: //adds a new customer
         {
             AllCustomers temp;
@@ -112,6 +109,7 @@ int main()
             cout << "New customer added." << endl;
             break;
         }
+        //space
         case 5: //adds multiple customers (recursive function)
         {
             AllCustomers obj;
