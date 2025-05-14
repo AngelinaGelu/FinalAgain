@@ -204,6 +204,7 @@ int main()
         case 10: //saves purchases to file
         {
             savePurchasesToFile(purchases);
+			saveCustomersToFile(customers);
             cout << "Press Enter to return to the menu..." << endl;
             cin.ignore();
             cin.get();

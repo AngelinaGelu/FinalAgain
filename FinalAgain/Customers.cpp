@@ -56,6 +56,8 @@ void printCustomerList(vector<AllCustomers>& customerList)
 void sortCustomerListAscending(vector<AllCustomers>& customerList)
 {
 	int x = customerList.size();
+
+	//bubble sort in ascending order
 	for (int i = 0; i < x - 1; i++)
 	{
 		for (int j = 0; j < x - i - 1; j++)
@@ -72,6 +74,8 @@ void sortCustomerListAscending(vector<AllCustomers>& customerList)
 void sortCustomerListDescending(vector<AllCustomers>& customerList)
 {
 	int x = customerList.size();
+
+	//bubble sort in descending order
 	for (int i = 0; i < x - 1; i++)
 	{
 		for (int j = 0; j < x - i - 1; j++)
@@ -127,6 +131,7 @@ AllCustomers AllCustomers::addNewCustomer()
 //adds multiple customers to the vector (recursive)
 void AllCustomers::addMultipleCustomers(vector<AllCustomers>& customerList)
 {
+	//adds a new customer to the vector
 	customerList.push_back(addNewCustomer());
 
 	char choice;
@@ -156,12 +161,14 @@ void AllCustomers::addMultipleCustomers(vector<AllCustomers>& customerList)
 //updates the info of a preexisting customer
 void AllCustomers::updateCustomerInfo(vector<AllCustomers>& customerList)
 {
+	//checks if the customer list is empty
 	if (customerList.empty())
 	{
 		cout << "There are no customers to update." << endl;
 		return;
 	}
 
+	//prompts the user to select a customer
 	cout << "Which customer would you like to update? " << endl;
 	for (int i = 0; i < customerList.size(); ++i)
 	{
@@ -173,6 +180,7 @@ void AllCustomers::updateCustomerInfo(vector<AllCustomers>& customerList)
 	cout << "Enter here: ";
 	cin >> choice;
 
+	//verifies choice
 	if (choice < 1 || choice > customerList.size())
 	{
 		cout << "Invalid Selection. Would you like to select another customer to update ? :" << endl;

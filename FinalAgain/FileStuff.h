@@ -66,7 +66,7 @@ void savePurchasesToFile(vector<AllPurchases>& purchases)
 	ofstream outFile("AllPurchasesData.txt");
 	if (!outFile)
 	{
-		cout << "Error: Could not create file for saving purchase data." << endl;
+		cout << "Could not create file for saving purchase data." << endl;
 		return;
 	}
 
@@ -80,6 +80,29 @@ void savePurchasesToFile(vector<AllPurchases>& purchases)
 
 	outFile.close();
 	cout << "Purchase data saved to PurchasesInfo.txt successfully!" << endl;
+}
+
+void saveCustomersToFile(vector<AllCustomers>& customers)
+{
+	ofstream outFile("AllCustomersData.txt");
+	if (!outFile)
+	{
+		cout << "Could not create file for saving customer data." << endl;
+		return;
+	}
+	for (int i = 0; i < customers.size(); ++i)
+	{
+		outFile << customers[i].getFirstName() << " "
+			<< customers[i].getLastName() << " "
+			<< customers[i].getAccountNumber() << " "
+			<< customers[i].getStreetAddress() << " "
+			<< customers[i].getCity() << " "
+			<< customers[i].getState() << " "
+			<< customers[i].getZipCode() << " "
+			<< customers[i].getPhoneNumber() << endl;
+	}
+	outFile.close();
+	cout << "Customer data saved to CustomersInfo.txt successfully!" << endl;
 }
 
 #endif
