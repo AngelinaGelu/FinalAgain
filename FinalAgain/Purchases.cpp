@@ -33,6 +33,7 @@ void AllPurchases::printCustomerTotalSpent(vector<AllPurchases>& purchaseList)
 }
 
 //prints the purchase information for a customer
+
 void AllPurchases::printCustomerPurchaseInfo()
 {
 	cout << "\n--------------------" << endl;

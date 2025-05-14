@@ -9,6 +9,19 @@
 //#include "Purchases.h"
 #include <limits>
 
+void printAllPurchases(string id, vector <AllPurchases>& purchase) {
+    for (int i = 0; i < purchase.size(); i++) {
+        if (id == purchase[i].getAccNumber()) {
+            //cout << "\n--------------------" << endl;
+            cout << endl << "\nAccount No.: " << purchase[i].getAccNumber();
+            cout << endl << "Item: " << purchase[i].getItem();
+            cout << endl << "Date: " << purchase[i].getDate();
+            cout << endl << "Amount $:" << purchase[i].getAmount();
+            //cout << "--------------------";
+        }
+    }
+}
+
 void menu()
 {
     cout << endl << "What would you like to do?" << endl;
@@ -52,13 +65,13 @@ int main()
     {
         menu();
 
-        cin >> choice;
-		/*while (cin.fail()) {
+        
+		while (!(cin >> choice)) //input validation
+		{
 			cout << "Invalid input. Please enter a number: ";
 			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
-			continue;
-		}*/
+		}
 
         switch (choice)
         {
@@ -108,7 +121,8 @@ int main()
             if (poo >= 1 && poo <= customers.size())
             {
                 customers[poo-1].printCustomerInfo();
-                purchases[poo-1].printCustomerPurchaseInfo();
+                /*purchases[poo-1].printCustomerPurchaseInfo();*/
+                printAllPurchases(customers[poo - 1].getAccountNumber(), purchases);
             }
             else
             {
@@ -215,6 +229,19 @@ int main()
             cin.get();
             break;
         }
+        default:
+			if ((choice >=1 && choice <= 12)) {
+				cout << "Invalid choice. Please try again." << endl;
+			}
+			break;
+		}
+		if (choice == 0) {
+			cout << "Exiting the program..." << endl;
+			cout << "Press Enter to exit." << endl;
+			cin.ignore();
+			cin.get();
+			break;
+            
 
         }
     } while (choice != 0);
