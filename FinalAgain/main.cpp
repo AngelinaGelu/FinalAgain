@@ -179,7 +179,7 @@ int main()
             break;
         }
         //space
-        case 10:
+        case 10: //saves purchases to file
         {
             savePurchasesToFile(purchases);
             cout << "Press Enter to return to the menu..." << endl;
