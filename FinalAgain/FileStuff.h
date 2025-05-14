@@ -36,7 +36,7 @@ bool readInCustomersFromFile(string& filename, vector<AllCustomers>& customers)
 }
 
 //reads purchases from a file
-bool readInPurchasesFromFile(string& filename, vector<AllPurchases>& purchases)
+bool readInPurchasesFromFile(string& filename, vector <AllPurchases>& purchases)
 {
 	ifstream file(filename);
 	if (!file)
@@ -47,15 +47,18 @@ bool readInPurchasesFromFile(string& filename, vector<AllPurchases>& purchases)
 	
 	string accNum;
 	string item, date;
-	string amount;
-
+	double amount;
+	
+	
 	while (file >> accNum >> item >> date >> amount)
 	{
+
 		purchases.push_back(AllPurchases(accNum, item, date, amount));
 	}
 
 	file.close();
 	return true;
+
 }
 
 void savePurchasesToFile(vector<AllPurchases>& purchases)

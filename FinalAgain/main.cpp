@@ -45,12 +45,20 @@ int main()
     /*if (!readInCustomersFromFile(customerFile, customers)) return 1;
     if (!readInPurchasesFromFile(purchaseFile, purchases)) return 1;*/
 
+
+    
     int choice;
     do
     {
         menu();
 
         cin >> choice;
+		/*while (cin.fail()) {
+			cout << "Invalid input. Please enter a number: ";
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			continue;
+		}*/
 
         switch (choice)
         {
@@ -68,7 +76,7 @@ int main()
             for (int i = 0; i < customers.size(); i++)
             {
                 cout << "--------------------" << endl;
-                AllPurchases temp(customers[i].getAccountNumber(), "", "", "0.00");
+                AllPurchases temp(customers[i].getAccountNumber(), "", "", 0.00);
                 cout << "Customer: " << customers[i].getFirstName() << " " << customers[i].getLastName() << endl;
                 temp.printCustomerTotalSpent(purchases);
                 cout << "--------------------" << endl;
@@ -99,8 +107,8 @@ int main()
 
             if (poo >= 1 && poo <= customers.size())
             {
-                customers[poo].printCustomerInfo();
-                purchases[poo].printCustomerPurchaseInfo();
+                customers[poo-1].printCustomerInfo();
+                purchases[poo-1].printCustomerPurchaseInfo();
             }
             else
             {

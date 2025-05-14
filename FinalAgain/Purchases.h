@@ -13,10 +13,10 @@ class AllPurchases
 private:
 	string accountNumber;
 	string item, date;
-	string amount;
+	double amount;
 	vector<AllPurchases> purchaseList;
 public:
-	AllPurchases(string accNum = "0", string item = "0", string date = "0", string amount = "0");
+	AllPurchases(string accNum = "0", string item = "0", string date = "0", double amount = 0);
 
 	void printCustomerTotalSpent(vector<AllPurchases>& purchaseList); //done
 	void printCustomerPurchaseInfo(); //done
@@ -29,7 +29,7 @@ public:
 	string getAccNumber();
 	string getItem();
 	string getDate();
-	string getAmount();
+	double getAmount();
 };
 
 #endif

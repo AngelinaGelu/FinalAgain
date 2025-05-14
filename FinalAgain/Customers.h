@@ -14,6 +14,9 @@ class AllCustomers
 private:
 	string firstName, lastName, streetAddress, city, state, zipCode;
 	string accountNumber, phoneNumber;
+
+	double totalSpent; 
+
 	//double totalSpent;
 public:
 	vector<AllCustomers> customerList;
@@ -27,7 +30,6 @@ public:
 	void printCustomerInfo();
 
 	AllCustomers addNewCustomer();
-
 	void addMultipleCustomers(vector<AllCustomers>& customerList); //done
 	void updateCustomerInfo(vector<AllCustomers>& customerList); //done
 	void deleteCustomer(vector<AllCustomers>& customerList);

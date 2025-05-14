@@ -45,7 +45,7 @@ void printCustomerList(vector<AllCustomers>& customerList)
 		cout << "Customer #" << (i + 1) << endl;
 		cout << "Account No.: " << customerList[i].accountNumber << endl;
 		cout << "Name: " << customerList[i].firstName << ' ' << customerList[i].lastName << endl;
-		cout << "Address: " << customerList[i].streetAddress << ", " << customerList[i].city << ", " << customerList[i].state << customerList[i].zipCode << endl;
+		cout << "Address: " << customerList[i].streetAddress << ", " << customerList[i].city << ", " << customerList[i].state << ", " << customerList[i].zipCode << endl;
 		cout << "Phone No.: " << customerList[i].phoneNumber << endl;
 		cout << "--------------------" << endl;
 

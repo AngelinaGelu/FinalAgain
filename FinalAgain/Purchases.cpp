@@ -9,7 +9,7 @@
 #include "Purchases.h"
 
 //default constructor
-AllPurchases::AllPurchases(string accNum, string item, string date, string amount)
+AllPurchases::AllPurchases(string accNum, string item, string date, double amount)
 {
 	this->accountNumber = accNum;
 	this->item = item;
@@ -25,7 +25,7 @@ void AllPurchases::printCustomerTotalSpent(vector<AllPurchases>& purchaseList)
 	{
 		if (purchaseList[i].getAccNumber() == this->accountNumber)
 		{
-			total += stod(purchaseList[i].getAmount());
+			total += purchaseList[i].getAmount();
 		}
 	}
 
@@ -94,33 +94,54 @@ void AllPurchases::printCustomerPurchaseInfo()
 //adds a new purchase for a customer
 AllPurchases AllPurchases::addNewPurchase(vector<AllCustomers>& customerList)
 {
-	string accNum, item, date, amount;
-	
-	cout << "Enter the account number of the customer: ";
-	cin >> accNum;
-
-	bool found = false;
-	for (int i = 0; i < customerList.size(); i++)
+	if (customerList.empty())
 	{
-		if (customerList[i].getAccountNumber() == accNum)
-		{
-			found = true;
-			break;
-		}
+		cout << "No customers available. Cannot add a purchase." << endl;
+		return AllPurchases("", "", "", 0.00);
 	}
 
-	if (!found)
+	// Display numbered list of customers
+	cout << "Select a customer by number:\n";
+	for (size_t i = 0; i < customerList.size(); ++i)
 	{
-		cout << "No customer with that account number was found. Purchase not added." << endl;
-		return AllPurchases("", "", "", "0.00");
+		cout << "\n--------------------" << endl;
+		cout << (i + 1) << ". " << "Account: " << customerList[i].getAccountNumber() << endl << "Name: " << customerList[i].getFirstName() << customerList[i].getLastName() << endl;
+		cout << "--------------------" << endl;
 	}
+
+	size_t selectedIndex;
+	cout << "Enter your choice (1 - " << customerList.size() << "): ";
+	cin >> selectedIndex;
+
+	if (cin.fail() || selectedIndex < 1 || selectedIndex > customerList.size())
+	{
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cout << "Invalid selection. Purchase not added." << endl;
+		return AllPurchases("", "", "", 0.00);
+	}
+
+	string accNum = customerList[selectedIndex - 1].getAccountNumber();
+
+	string item, date;
+	double amount;
 
 	cout << "Enter the item name: ";
-	cin >> item;
+	cin >> ws;
+	getline(cin, item);
+
 	cout << "Enter the date (MM/DD/YYYY): ";
-	cin >> date;
+	getline(cin, date);
+
 	cout << "Enter the amount: $";
 	cin >> amount;
+	while (cin.fail())
+	{
+		cout << "Invalid input. Please enter a number: ";
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cin >> amount;
+	}
 
 	return AllPurchases(accNum, item, date, amount);
 
@@ -154,4 +175,4 @@ AllPurchases AllPurchases::addMultipleNewPurchases(vector<AllCustomers>& custome
 string AllPurchases::getAccNumber() { return accountNumber;  }
 string AllPurchases::getItem() { return item;  }
 string AllPurchases::getDate() { return date; }
-string AllPurchases::getAmount() { return amount;  }
+double AllPurchases::getAmount() { return amount;  }
