@@ -33,9 +33,18 @@ void AllPurchases::printCustomerTotalSpent(vector<AllPurchases>& purchaseList)
 }
 
 //prints the purchase information for a customer
-void AllPurchases::printCustomerPurchaseInfo(vector<AllCustomers>& customerList, vector<AllPurchases>& purchaseList)
+void AllPurchases::printCustomerPurchaseInfo()
 {
-	if (customerList.empty())
+	cout << "\n--------------------" << endl;
+	cout << "Account No.: " << getAccNumber() << endl;
+	cout << "Item: " << getItem() << endl;
+	cout << "Date: " << getDate() << endl;
+	cout << "Amount: " << getAmount() << endl;
+	cout << "\n--------------------" << endl;
+
+
+
+	/*if (customerList.empty())
 	{
 		cout << "No customers found. " << endl;
 		return;
@@ -57,10 +66,16 @@ void AllPurchases::printCustomerPurchaseInfo(vector<AllCustomers>& customerList,
 		return;
 	}
 
-	int x = choice - 1;
-	customerList[x].printCustomerList(customerList);
+	printCustomerList(customerList);
 
-	printCustomerTotalSpent(purchaseList);
+	printCustomerTotalSpent(purchaseList);*/
+
+
+
+
+
+
+
 
 	/*for (int i = 0; i < customerList.size(); i++)
 	{
@@ -112,7 +127,7 @@ AllPurchases AllPurchases::addNewPurchase(vector<AllCustomers>& customerList)
 }
 
 //adds multiple purchases to a customer
-AllPurchases AllPurchases::addMultipleNewPurchases(vector<AllCustomers>& customerList, vector<AllPurchases>& purchaseList)
+AllPurchases AllPurchases::addMultipleNewPurchases(vector<AllCustomers>& customerList)
 {
 	char choice;
 
@@ -124,7 +139,7 @@ AllPurchases AllPurchases::addMultipleNewPurchases(vector<AllCustomers>& custome
 
 	if (choice == 'y' || choice == 'Y')
 	{
-		addMultipleNewPurchases(customerList, purchaseList);
+		addMultipleNewPurchases(customerList);
 	}
 	else
 	{

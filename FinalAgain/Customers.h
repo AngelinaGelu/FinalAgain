@@ -20,9 +20,11 @@ public:
 
 	AllCustomers(string fName = "N/A", string lName = "N/A", string accNum = "0", string stA = "N/A", string c = "N/A", string s = "N/A", string zc = "N/A", string pn = "0");
 
-	void printCustomerList(vector<AllCustomers>& customers); //done
-	void sortCustomerListAscending(); //done
-	void sortCustomerListDescending(); //done
+	friend void printCustomerList(vector<AllCustomers>& customerList); //done
+	friend void sortCustomerListAscending(vector<AllCustomers>& customerList); //done
+	friend void sortCustomerListDescending(vector<AllCustomers>& customerList); //done
+
+	void printCustomerInfo();
 
 	AllCustomers addNewCustomer();
 

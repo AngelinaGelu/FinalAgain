@@ -16,14 +16,14 @@ private:
 	string amount;
 	vector<AllPurchases> purchaseList;
 public:
-	AllPurchases(string accNum, string item, string date, string amount);
+	AllPurchases(string accNum = "0", string item = "0", string date = "0", string amount = "0");
 
 	void printCustomerTotalSpent(vector<AllPurchases>& purchaseList); //done
-	void printCustomerPurchaseInfo(vector<AllCustomers>& customerList, vector<AllPurchases>& purchaseList); //done
+	void printCustomerPurchaseInfo(); //done
 
 	AllPurchases addNewPurchase(vector<AllCustomers>& customerList); //done
 
-	AllPurchases addMultipleNewPurchases(vector<AllCustomers>& customerList, vector<AllPurchases>& purchaseList);
+	AllPurchases addMultipleNewPurchases(vector<AllCustomers>& customerList);
 
 	//getters all done
 	string getAccNumber();

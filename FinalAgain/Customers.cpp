@@ -23,14 +23,25 @@ AllCustomers::AllCustomers(string fName, string lName, string accNum, string stA
 	phoneNumber = pn;
 }
 
+//print customer information
+void AllCustomers::printCustomerInfo()
+{
+	cout << "\n--------------------" << endl;
+	cout << "Account No.: " << getAccountNumber() << endl;
+	cout << "Name: " << getFirstName() << ' ' << getLastName() << endl;
+	cout << "Address: " << getStreetAddress() << ", " << getCity() << ", " << getState() << ", " << getZipCode() << endl;
+	cout << "Phone No.: " << getPhoneNumber() << endl;
+	cout << "--------------------" << endl;
+}
+
 
 //prints customer list
-void AllCustomers::printCustomerList(vector<AllCustomers>& customers)
+void printCustomerList(vector<AllCustomers>& customerList)
 {
 
 	for (int i = 0; i < customerList.size(); i++)
 	{
-		cout << "--------------------" << endl;
+		cout << "\n--------------------" << endl;
 		cout << "Customer #" << (i + 1) << endl;
 		cout << "Account No.: " << customerList[i].accountNumber << endl;
 		cout << "Name: " << customerList[i].firstName << ' ' << customerList[i].lastName << endl;
@@ -42,7 +53,7 @@ void AllCustomers::printCustomerList(vector<AllCustomers>& customers)
 }
 
 //sorts customer list in ascending order
-void AllCustomers::sortCustomerListAscending()
+void sortCustomerListAscending(vector<AllCustomers>& customerList)
 {
 	int x = customerList.size();
 	for (int i = 0; i < x - 1; i++)
@@ -58,7 +69,7 @@ void AllCustomers::sortCustomerListAscending()
 }
 
 //sorts customer list in descending order
-void AllCustomers::sortCustomerListDescending()
+void sortCustomerListDescending(vector<AllCustomers>& customerList)
 {
 	int x = customerList.size();
 	for (int i = 0; i < x - 1; i++)

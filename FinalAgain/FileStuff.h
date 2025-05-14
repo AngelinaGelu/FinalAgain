@@ -58,4 +58,25 @@ bool readInPurchasesFromFile(string& filename, vector<AllPurchases>& purchases)
 	return true;
 }
 
+void savePurchasesToFile(vector<AllPurchases>& purchases)
+{
+	ofstream outFile("AllPurchasesData.txt");
+	if (!outFile)
+	{
+		cout << "Error: Could not create file for saving purchase data." << endl;
+		return;
+	}
+
+	for (int i = 0; i < purchases.size(); ++i)
+	{
+		outFile << purchases[i].getAccNumber() << " "
+			<< purchases[i].getItem() << " "
+			<< purchases[i].getDate() << " "
+			<< purchases[i].getItem() << endl;
+	}
+
+	outFile.close();
+	cout << "Purchase data saved to PurchasesInfo.txt successfully!" << endl;
+}
+
 #endif
